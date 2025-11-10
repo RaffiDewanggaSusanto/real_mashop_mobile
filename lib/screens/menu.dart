@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:real_mashop/screens/productslist_form.dart';
+import 'package:real_mashop/widgets/left_drawer.dart';
+import 'package:real_mashop/widgets/products_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -8,9 +11,9 @@ class MyHomePage extends StatelessWidget {
   final String kelas = "E"; //kelas
 
   final List<ItemHomepage> items = [
-    ItemHomepage("All Products", Icons.man_3_sharp, Colors.blue),
-    ItemHomepage("My Products", Icons.shopping_cart_checkout_sharp, Colors.green),
-    ItemHomepage("Create Products", Icons.create_new_folder_sharp, Colors.red),
+    ItemHomepage("See Sport Product", Icons.newspaper),
+    ItemHomepage("Tambah Produk", Icons.add),
+    ItemHomepage("Logout", Icons.logout),
   ];
 
   @override
@@ -28,8 +31,9 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: const Color(0xFFf0b414),
       ),
+      drawer: LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -126,14 +130,6 @@ class InfoCard extends StatelessWidget {
   }
 }
 
-class ItemHomepage {
-  final String name;
-  final IconData icon;
-  final Color color;
-
-  ItemHomepage(this.name, this.icon, this.color);
-}
-
 class ItemCard extends StatelessWidget {
   // Menampilkan kartu dengan ikon dan nama.
 
@@ -145,19 +141,28 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       // Menentukan warna latar belakang dari tema aplikasi.
-      color: item.color,
+      color: Theme.of(context).colorScheme.secondary,
       // Membuat sudut kartu melengkung.
       borderRadius: BorderRadius.circular(12),
 
       child: InkWell(
         // Aksi ketika kartu ditekan.
         onTap: () {
-          // Menampilkan pesan SnackBar saat kartu ditekan.
+          // Memunculkan SnackBar ketika diklik
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
-            ..showSnackBar(
-                SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
+            ..showSnackBar(SnackBar(
+                content: Text("Kamu telah menekan tombol ${item.name}!")));
+
+          // Navigate ke route yang sesuai (tergantung jenis tombol)
+          if (item.name == "Tambah Produk") {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductsFormPage(),
+                )
             );
+          }
         },
         // Container untuk menyimpan Icon dan Text
         child: Container(

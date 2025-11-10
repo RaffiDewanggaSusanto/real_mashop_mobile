@@ -48,3 +48,20 @@ Hot Reload digunakan untuk memperbarui kode di layar sedangkan Hot Restart digun
  
 # Jelaskan bagaimana kamu menambahkan navigasi untuk berpindah antar layar di aplikasi Flutter.
 Untuk menambahkan navigation untuk berpindah antar layar di aplikasi Flutter misalnya adalah dengan membuat dua halaman HomePage dan DetailPage lalu digunakan Navigator.push() untuk pindah ke halaman lain dan Navigator.pop() untuk kembali.
+
+# Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+- Navigator.push() digunakan untuk menambahkan route baru ke atas stack agar pengguna bisa kembali dengan menekan tombol back. Navigator.push() cocok digunakan untuk membuka halaman form tambah produk agar setelah membuat produk baru kemudian bisa kembali ke home.
+- Navigator.pushReplacement() dgunakan untuk mengganti route saat ini dengan route baru, halaman lama akan dihapus dari stack sehingga tidak bisa kembali lagi. Cocok digunakan untuk alur login dimana jika sudah logout maka akan kembali ke halaman login dan tidak bisa kembali ke home atau setelah melakukan login maka tidak bisa kembali ke halaman login lagi.
+
+# Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+- Scaffold digunakan sebagai penyedia kerangka standar seperti AppBar, body Drawer, dan FloatingActionButton, sehingga seluruh halaman konsisten.
+- AppBar digunakan untuk menyimpan judul halaman dan icon-icon yang digunakan. Setiap halaman menggunakan AppBar dengan warna yang sama dan icon-icon yang sesuai.
+- Drawer digunakan untuk panel samping yang bisa digeser dari sisi kiri atau kanan untuk navigasi aplikasi. Dengan drawer pengguna bisa pindah halaman kapan saja dan navigasi aplikasi menjadi konsisten.
+
+# Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+- Padding: memberikan ruang di sekitar widget agar UI tidak mepet ke tepi layar, lebih rapih, dan lebih mudah dibaca. Contoh penggunaannya adalah pada kolom pengisian di form yang menggunakan padding agar lebih rapih.
+- SingleChildScrollView: agar konten di layar bisa discroll secara vertikal jika melebihi tinggi layar. Contoh penggunaannya adalah pada halaman form dimana halaman tersebut bisa discroll jika panjang content lebih panjang dari panjang halaman.
+- ListView: untuk menampilkan daftar elemen panjang dan memiliki fitur scroll bawaan. Contoh penggunaannya adalah pada left drawer digunakan untuk memunculkan tile halaman utama dan tambah produk.
+
+# Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+Menentukan warna-warna yang akan digunakan lalu menambahkan "color: Colors.white" atau "Color(0xFFf0b414)" pada bagian-bagian yang ingin diubah warnanya sesuai dengan kebutuhan. 
