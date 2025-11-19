@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:real_mashop/screens/productslist_form.dart';
 import 'package:real_mashop/widgets/left_drawer.dart';
 import 'package:real_mashop/widgets/products_card.dart';
+import 'package:real_mashop/screens/products_entry_list.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -33,7 +34,7 @@ class MyHomePage extends StatelessWidget {
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
         backgroundColor: const Color(0xFFf0b414),
       ),
-      drawer: LeftDrawer(),
+      drawer: const LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -62,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   // Menampilkan teks sambutan dengan gaya tebal dan ukuran 18.
                   const Padding(
-                    padding: EdgeInsets.only(top: 16.0),
+                    padding: EdgeInsets.only(top: 16.0, bottom: 8),
                     child: Text(
                       'Selamat datang di Real Mashop',
                       style: TextStyle(
@@ -70,6 +71,14 @@ class MyHomePage extends StatelessWidget {
                         fontSize: 18.0,
                       ),
                     ),
+                  ),
+                  const Text(
+                    'Temukan dan kelola produk olahraga favoritmu.',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
 
                   // Grid untuk menampilkan ItemCard dalam bentuk grid 3 kolom.
@@ -83,9 +92,11 @@ class MyHomePage extends StatelessWidget {
                     shrinkWrap: true,
 
                     // Menampilkan ItemCard untuk setiap item dalam list items.
-                    children: items.map((ItemHomepage item) {
-                      return ItemCard(item);
-                    }).toList(),
+                    children: items
+                        .map(
+                          (ItemHomepage item) => ItemCard(item),
+                        )
+                        .toList(),
                   ),
                 ],
               ),
@@ -154,8 +165,15 @@ class ItemCard extends StatelessWidget {
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
 
+          if (item.name == "See Sport Product") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductsEntryListPage()),
+            );
+          }
+
           // Navigate ke route yang sesuai (tergantung jenis tombol)
-          if (item.name == "Tambah Produk") {
+          else if (item.name == "Tambah Produk") {
             Navigator.push(
                 context,
                 MaterialPageRoute(
