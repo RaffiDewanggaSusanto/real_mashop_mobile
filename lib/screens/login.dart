@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                             String password = _passwordController.text;
 
                             final response = await request.login(
-                              "http://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/auth/login/",
+                              "https://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/auth/login/",
                               {
                                 'username': username,
                                 'password': password,

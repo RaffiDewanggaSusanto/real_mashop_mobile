@@ -20,7 +20,7 @@ class _ProductsEntryListPageState extends State<ProductsEntryListPage> {
     // To connect Android emulator with Django on localhost, use URL http://10.0.2.2/
     // If you using chrome,  use URL http://localhost:8000
 
-    final response = await request.get('http://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/json-by-user/');
+    final response = await request.get('https://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/json-by-user/');
 
     // Decode response to json format
     var data = response;

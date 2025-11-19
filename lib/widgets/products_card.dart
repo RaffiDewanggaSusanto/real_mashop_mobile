@@ -64,7 +64,7 @@ class ItemCard extends StatelessWidget {
             // If you using chrome,  use URL http://localhost:8000
 
             final response = await request.logout(
-              "http://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/auth/logout/",
+              "https://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/auth/logout/",
             );
             if (!context.mounted) return;
 

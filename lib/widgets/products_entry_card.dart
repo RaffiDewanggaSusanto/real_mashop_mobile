@@ -33,7 +33,7 @@ class ProductsEntryCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(
-                    'http://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(products.thumbnail)}',
+                    'https://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(products.thumbnail)}',
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,

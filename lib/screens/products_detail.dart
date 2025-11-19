@@ -28,7 +28,7 @@ class ProductsDetailPage extends StatelessWidget {
             // Thumbnail image
             if (products.thumbnail.isNotEmpty)
               Image.network(
-                'http://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(products.thumbnail)}',
+                'https://raffi-dewangga-realmashop.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(products.thumbnail)}',
                 width: double.infinity,
                 height: 250,
                 fit: BoxFit.cover,
